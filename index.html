@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rovanele Climatização | Ar-condicionado, VRF e Chillers</title>
+<meta name="description" content="Instalação e manutenção de ar-condicionado, sistemas VRF e chillers. Solicite seu orçamento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marinho:#0A1F44;
+  --marinho-2:#102c5e;
+  --gelo:#F2F8FF;
+  --gelo-2:#D8EAFB;
+  --azul:#6FB6F2;
+  --texto:#1b2a41;
+  --estrela:#F5B400;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',Arial,sans-serif;color:var(--texto);background:#fff;line-height:1.6}
+h1,h2,h3{font-family:'Bricolage Grotesque','DM Sans',Arial,sans-serif;line-height:1.1}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--azul);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* ---------- PRIMEIRA DOBRA ---------- */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;color:#fff;overflow:hidden;background:var(--marinho)}
+/* Camada com movimento lento (efeito "boomerang": vai e volta, como um vídeo) */
+.hero-foto{position:absolute;inset:0;animation:respirar 14s ease-in-out infinite alternate;transform-origin:65% 55%}
+.hero-foto svg{position:absolute;inset:0;width:100%;height:100%}
+/* Se existir um arquivo hero.jpg no repositório, ele cobre a ilustração automaticamente */
+.hero-img{position:absolute;inset:0;background:url('hero.jpg') center/cover no-repeat}
+@keyframes respirar{
+  from{transform:scale(1) translate3d(0,0,0)}
+  to{transform:scale(1.12) translate3d(-1.5%,-1%,0)}
+}
+.hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(10,31,68,.92) 0%,rgba(10,31,68,.72) 45%,rgba(10,31,68,.15) 100%)}
+.topo,.hero-conteudo{position:relative;z-index:2}
+.topo{padding:26px 0}
+.marca{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.02em}
+.marca span{font-weight:600;opacity:.8;margin-left:.4em}
+.hero-conteudo{flex:1;display:flex;align-items:center;padding:40px 0 90px}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);font-weight:800;max-width:15ch;margin-bottom:22px}
+.hero p{font-size:clamp(1.05rem,2vw,1.25rem);max-width:52ch;color:var(--gelo-2);margin-bottom:34px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:1.05rem;
+  padding:17px 34px;border-radius:999px;background:#fff;color:var(--marinho);
+  border:2px solid #fff;transition:transform .25s,background .25s,color .25s,box-shadow .25s}
+.btn:hover,.btn:focus-visible{background:var(--azul);border-color:var(--azul);color:var(--marinho);
+  transform:translateY(-4px);box-shadow:0 14px 30px rgba(111,182,242,.45)}
+.hero-nota{display:block;margin-top:16px;font-size:.92rem;color:var(--gelo-2);opacity:.85}
+
+/* ---------- SEÇÕES ---------- */
+section.bloco{padding:96px 0}
+.bloco h2{font-size:clamp(1.9rem,4.4vw,3rem);font-weight:800;color:var(--marinho);margin-bottom:14px}
+.intro{max-width:56ch;font-size:1.1rem;margin-bottom:48px;color:#3d4f6b}
+
+/* Feedbacks */
+#feedbacks{background:var(--gelo)}
+.avaliacoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+.av{background:#fff;border:1px solid var(--gelo-2);border-radius:14px;padding:24px}
+.av-topo{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.av-foto{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  color:#fff;font-weight:700;background:var(--marinho-2)}
+.av:nth-child(2n) .av-foto{background:#2b6cb0}
+.av:nth-child(3n) .av-foto{background:#3a8fd0}
+.av-nome{font-weight:700;line-height:1.2}
+.av-quando{font-size:.85rem;color:#6a7b95}
+.estrelas{color:var(--estrela);letter-spacing:2px;font-size:1.05rem;margin-bottom:8px}
+.av p{font-size:.98rem}
+
+/* Serviços */
+.servicos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px 48px}
+.serv{border-left:4px solid var(--azul);padding-left:20px}
+.serv h3{font-size:1.35rem;color:var(--marinho);margin-bottom:8px}
+.serv p{color:#3d4f6b}
+
+/* Contato */
+#contato{background:var(--marinho);color:#fff}
+#contato h2{color:#fff}
+#contato .intro{color:var(--gelo-2)}
+.contato-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:10px}
+.contato-grid h3{font-size:1.1rem;color:var(--azul);margin-bottom:6px}
+.contato-grid p,.contato-grid a{color:#fff;text-decoration:none}
+.contato-grid a:hover{text-decoration:underline}
+#contato .btn{margin-top:40px}
+footer{background:#071634;color:var(--gelo-2);text-align:center;padding:24px;font-size:.9rem}
+
+@media (max-width:640px){
+  .hero::after{background:linear-gradient(180deg,rgba(10,31,68,.85) 0%,rgba(10,31,68,.8) 100%)}
+  section.bloco{padding:70px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-foto{animation:none}
+  html{scroll-behavior:auto}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- 1) PRIMEIRA DOBRA -->
+<header class="hero">
+  <div class="hero-foto" role="img" aria-label="Técnicos uniformizados, com EPIs, instalando splits em uma casa de alto padrão">
+
+    <!-- Ilustração (aparece enquanto não houver o arquivo hero.jpg) -->
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="parede" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e6f1fc"/><stop offset="1" stop-color="#bcd5ee"/>
+        </linearGradient>
+        <linearGradient id="ceu" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#8cc7f5"/><stop offset="1" stop-color="#d6ecfc"/>
+        </linearGradient>
+        <!-- Corpo de um técnico (pés em 0,0). O capacete usa a cor definida em cada uso -->
+        <g id="corpo">
+          <ellipse cx="0" cy="2" rx="62" ry="8" fill="#000" opacity=".16"/>
+          <rect x="-34" y="-18" width="28" height="18" rx="4" fill="#1a1a1a"/>
+          <rect x="6" y="-18" width="28" height="18" rx="4" fill="#1a1a1a"/>
+          <rect x="-30" y="-130" width="26" height="114" fill="#0b2b5c"/>
+          <rect x="4" y="-130" width="26" height="114" fill="#0b2b5c"/>
+          <rect x="-42" y="-262" width="84" height="138" rx="14" fill="#123a7a"/>
+          <rect x="-42" y="-200" width="84" height="10" fill="#e9f2fb"/>
+          <rect x="-42" y="-172" width="84" height="10" fill="#e9f2fb"/>
+          <circle cx="0" cy="-288" r="26" fill="#e0ac84"/>
+          <rect x="-19" y="-295" width="38" height="11" rx="5" fill="#9ed0f5" stroke="#0b2b5c" stroke-width="2"/>
+          <path d="M-32,-296 A32,32 0 0 1 32,-296 Z" fill="currentColor"/>
+          <rect x="-36" y="-298" width="72" height="8" rx="4" fill="currentColor"/>
+        </g>
+      </defs>
+
+      <!-- Parede, piso e janela -->
+      <rect width="1600" height="900" fill="url(#parede)"/>
+      <rect y="800" width="1600" height="100" fill="#c8b79d"/>
+      <rect y="792" width="1600" height="10" fill="#f4efe6"/>
+      <rect x="1440" y="190" width="200" height="380" fill="url(#ceu)" stroke="#f4f9ff" stroke-width="10"/>
+
+      <!-- Splits na parede -->
+      <g>
+        <rect x="760" y="150" width="270" height="80" rx="16" fill="#fff" stroke="#b8cde3" stroke-width="3"/>
+        <rect x="780" y="204" width="230" height="10" rx="5" fill="#8fb4d9"/>
+        <circle cx="1000" cy="172" r="4" fill="#3fa9f5"/>
+      </g>
+      <g>
+        <rect x="1120" y="150" width="270" height="80" rx="16" fill="#fff" stroke="#b8cde3" stroke-width="3"/>
+        <rect x="1140" y="204" width="230" height="10" rx="5" fill="#8fb4d9"/>
+        <circle cx="1360" cy="172" r="4" fill="#3fa9f5"/>
+      </g>
+
+      <!-- Escada -->
+      <g stroke="#9aa7b5" stroke-width="12" stroke-linecap="round">
+        <line x1="790" y1="810" x2="835" y2="632"/>
+        <line x1="970" y1="810" x2="925" y2="632"/>
+        <line x1="820" y1="690" x2="940" y2="690" stroke-width="9"/>
+        <line x1="803" y1="760" x2="957" y2="760" stroke-width="9"/>
+      </g>
+      <rect x="826" y="620" width="108" height="14" rx="4" fill="#7f8c9b"/>
+
+      <!-- Técnico principal (escada) -->
+      <use href="#corpo" x="880" y="620" color="#ffffff"/>
+      <g stroke="#123a7a" stroke-width="24" stroke-linecap="round" fill="none">
+        <path d="M848,388 L842,240"/><path d="M912,388 L930,240"/>
+      </g>
+      <circle cx="842" cy="236" r="14" fill="#f08a24"/>
+      <circle cx="930" cy="236" r="14" fill="#f08a24"/>
+
+      <!-- Ajudante 1 (segurando um split) -->
+      <use href="#corpo" x="1180" y="800" color="#ffc933"/>
+      <g stroke="#123a7a" stroke-width="24" stroke-linecap="round" fill="none">
+        <path d="M1140,566 L1118,606"/><path d="M1220,566 L1244,606"/>
+      </g>
+      <rect x="1085" y="592" width="190" height="62" rx="12" fill="#fff" stroke="#b8cde3" stroke-width="3"/>
+      <rect x="1102" y="632" width="156" height="8" rx="4" fill="#8fb4d9"/>
+      <circle cx="1116" cy="608" r="14" fill="#f08a24"/>
+      <circle cx="1246" cy="608" r="14" fill="#f08a24"/>
+
+      <!-- Ajudante 2 (caixa de ferramentas) -->
+      <use href="#corpo" x="1400" y="800" color="#ffc933"/>
+      <g stroke="#123a7a" stroke-width="24" stroke-linecap="round" fill="none">
+        <path d="M1360,566 L1352,700"/><path d="M1440,566 L1456,706"/>
+      </g>
+      <circle cx="1352" cy="706" r="14" fill="#f08a24"/>
+      <circle cx="1456" cy="712" r="14" fill="#f08a24"/>
+      <path d="M1440,716 q22,-26 44,0" stroke="#444" stroke-width="6" fill="none"/>
+      <rect x="1430" y="716" width="76" height="52" rx="6" fill="#d94b2b"/>
+      <rect x="1430" y="736" width="76" height="6" fill="#a83619"/>
+
+      <!-- Caixas de papelão -->
+      <rect x="1500" y="730" width="90" height="72" fill="#c99a5e"/>
+      <rect x="1500" y="730" width="90" height="12" fill="#b4854c"/>
+    </svg>
+
+    <!-- Foto real (opcional): envie um arquivo chamado hero.jpg para o repositório -->
+    <div class="hero-img"></div>
+  </div>
+
+  <div class="topo"><div class="wrap"><div class="marca">ROVANELE<span>CLIMATIZAÇÃO</span></div></div></div>
+  <div class="hero-conteudo"><div class="wrap">
+    <h1>O frio certo, instalado do jeito certo.</h1>
+    <p>Instalação, manutenção e projetos de climatização, de splits residenciais a chillers e sistemas VRF. Equipe uniformizada, com todos os EPIs, cuidando de cada detalhe da sua obra.</p>
+    <!-- TROQUE o número do WhatsApp abaixo (formato: 55 + DDD + número) -->
+    <a class="btn" href="https://wa.me/5562900000000?text=Ol%C3%A1!%20Quero%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicite seu orçamento</a>
+    <span class="hero-nota">Resposta rápida pelo WhatsApp.</span>
+  </div></div>
+</header>
+
+<main>
+<!-- 2) FEEDBACKS (troque pelos comentários reais dos seus clientes) -->
+<section class="bloco" id="feedbacks"><div class="wrap">
+  <h2>Quem contratou, recomenda</h2>
+  <p class="intro">Veja o que nossos clientes contam depois de ter o serviço pronto.</p>
+  <div class="avaliacoes">
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">M</div><div><div class="av-nome">Mariana S.</div><div class="av-quando">há 2 semanas</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Instalaram quatro splits na minha casa em um dia. Equipe pontual, limpa e muito educada. Não deixaram nenhuma sujeira.</p>
+    </article>
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">R</div><div><div class="av-nome">Ricardo A.</div><div class="av-quando">há 1 mês</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Contratei a manutenção preventiva da minha empresa. Explicaram tudo o que foi feito e o ar ficou muito mais gelado.</p>
+    </article>
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">C</div><div><div class="av-nome">Camila F.</div><div class="av-quando">há 1 mês</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Meu ar parou em pleno calor e vieram no mesmo dia. Resolveram o problema e passaram um orçamento bem claro.</p>
+    </article>
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">J</div><div><div class="av-nome">João Pedro L.</div><div class="av-quando">há 2 meses</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Profissionais de verdade: uniforme, EPIs e muito cuidado com a obra. Recomendo para quem quer serviço bem feito.</p>
+    </article>
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">A</div><div><div class="av-nome">Ana Paula G.</div><div class="av-quando">há 3 meses</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Atendimento excelente do orçamento até a entrega. Cumpriram o prazo combinado e o acabamento ficou perfeito.</p>
+    </article>
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">T</div><div><div class="av-nome">Tiago M.</div><div class="av-quando">há 4 meses</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Fizeram o projeto e a instalação do sistema VRF do nosso escritório. Tudo funcionando sem dor de cabeça.</p>
+    </article>
+  </div>
+</div></section>
+
+<!-- 3) SERVIÇOS -->
+<section class="bloco" id="servicos"><div class="wrap">
+  <h2>Tudo o que você precisa em climatização</h2>
+  <p class="intro">Do ar-condicionado simples ao projeto mais completo, uma só empresa cuida de tudo.</p>
+  <div class="servicos">
+    <div class="serv"><h3>Instalação de splits</h3><p>Para casas, apartamentos e escritórios, com acabamento limpo e aparelho funcionando do jeito certo desde o primeiro dia.</p></div>
+    <div class="serv"><h3>Manutenção preventiva</h3><p>Limpeza e revisão periódicas para o aparelho gelar melhor, gastar menos energia e durar mais.</p></div>
+    <div class="serv"><h3>Manutenção corretiva</h3><p>Seu ar parou, pingou ou não gela? Diagnosticamos o defeito e fazemos o conserto com peças de qualidade.</p></div>
+    <div class="serv"><h3>Sistemas VRF</h3><p>Instalação e manutenção de sistemas de fluxo variável, ideais para prédios, clínicas, hotéis e grandes ambientes.</p></div>
+    <div class="serv"><h3>Chillers e centrais de água gelada</h3><p>Soluções para indústrias e grandes empreendimentos, com equipe preparada para obras de grande porte.</p></div>
+    <div class="serv"><h3>Projetos e PMOC</h3><p>Dimensionamento correto do equipamento e elaboração do plano de manutenção exigido para ambientes comerciais.</p></div>
+  </div>
+</div></section>
+
+<!-- 4) CONTATO (troque pelos dados reais) -->
+<section class="bloco" id="contato"><div class="wrap">
+  <h2>Vamos conversar sobre o seu projeto</h2>
+  <p class="intro">Conte o que você precisa e receba um orçamento sem compromisso.</p>
+  <div class="contato-grid">
+    <div><h3>WhatsApp</h3><p><a href="https://wa.me/5562900000000" target="_blank" rel="noopener">(62) 90000-0000</a></p></div>
+    <div><h3>E-mail</h3><p><a href="mailto:contato@rovanele.com.br">contato@rovanele.com.br</a></p></div>
+    <div><h3>Atendimento</h3><p>Segunda a sexta, das 8h às 18h<br>Sábado, das 8h às 12h</p></div>
+    <div><h3>Região atendida</h3><p>Goiânia e cidades vizinhas</p></div>
+  </div>
+  <a class="btn" href="https://wa.me/5562900000000?text=Ol%C3%A1!%20Quero%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicite seu orçamento</a>
+</div></section>
+</main>
+
+<footer>&copy; 2026 Rovanele Climatização. Todos os direitos reservados.</footer>
+
+</body>
+</html>
