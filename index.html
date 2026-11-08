@@ -74,4 +74,188 @@ a{color:inherit}
 .btn:hover svg,.btn:focus-visible svg{fill:var(--zap)}
 .hero-nota{display:block;margin-top:16px;font-size:.92rem;color:var(--gelo-2);opacity:.9}
 
-/* ----------
+/* ---------- BOTÃO FLUTUANTE DO WHATSAPP (só o ícone) ---------- */
+.zap-flutuante{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:60;
+  width:64px;height:64px;border-radius:50%;background:var(--zap);display:grid;place-items:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.28);transition:transform .25s,background .25s}
+.zap-flutuante svg{width:36px;height:36px;fill:#fff}
+.zap-flutuante::after{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid var(--zap);
+  animation:pulsar 2.4s ease-out infinite}
+.zap-flutuante:hover,.zap-flutuante:focus-visible{transform:scale(1.1);background:#1ebe5b}
+@keyframes pulsar{
+  0%{transform:scale(1);opacity:.7}
+  100%{transform:scale(1.6);opacity:0}
+}
+
+/* ---------- SEÇÕES ---------- */
+section.bloco{padding:96px 0}
+.bloco h2{font-size:clamp(1.9rem,4.4vw,3rem);font-weight:800;color:var(--marinho);margin-bottom:14px}
+.intro{max-width:56ch;font-size:1.1rem;margin-bottom:48px;color:#3d4f6b}
+
+/* Feedbacks */
+#feedbacks{background:var(--gelo)}
+.avaliacoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+.av{background:#fff;border:1px solid var(--gelo-2);border-radius:14px;padding:24px}
+.av-topo{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.av-foto{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  color:#fff;font-weight:700;background:var(--marinho-2)}
+.av:nth-child(2n) .av-foto{background:#2b6cb0}
+.av:nth-child(3n) .av-foto{background:#3a8fd0}
+.av-nome{font-weight:700;line-height:1.2}
+.av-quando{font-size:.85rem;color:#6a7b95}
+.estrelas{color:var(--estrela);letter-spacing:2px;font-size:1.05rem;margin-bottom:8px}
+.av p{font-size:.98rem}
+
+/* Serviços */
+.servicos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px 48px}
+.serv{border-left:4px solid var(--azul);padding-left:20px}
+.serv h3{font-size:1.35rem;color:var(--marinho);margin-bottom:8px}
+.serv p{color:#3d4f6b}
+
+/* Contato */
+#contato{background:var(--marinho);color:#fff}
+#contato h2{color:#fff}
+#contato .intro{color:var(--gelo-2)}
+.contato-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:10px}
+.contato-grid h3{font-size:1.1rem;color:var(--azul);margin-bottom:6px}
+.contato-grid p,.contato-grid a{color:#fff;text-decoration:none}
+.contato-grid a:hover{text-decoration:underline}
+#contato .btn{margin-top:40px}
+footer{background:#071634;color:var(--gelo-2);text-align:center;padding:24px;font-size:.9rem}
+
+@media (max-width:760px){
+  .hero-foto{background-position:70% center;transform-origin:70% 50%}
+  .hero::after{background:linear-gradient(180deg,rgba(10,31,68,.9) 0%,rgba(10,31,68,.7) 55%,rgba(10,31,68,.4) 100%)}
+  section.bloco{padding:70px 0}
+  .faixa-item{font-size:.85rem}
+  .zap-flutuante{width:58px;height:58px;right:16px}
+  .zap-flutuante svg{width:32px;height:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-foto{animation:none}
+  .faixa-trilho{animation:none}
+  .zap-flutuante::after{animation:none;display:none}
+  html{scroll-behavior:auto}
+  .btn,.zap-flutuante{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- FAIXA NO TOPO: o texto está repetido de propósito para o loop ficar contínuo -->
+<div class="faixa" aria-label="Orçamento em até 1 hora">
+  <div class="faixa-trilho" aria-hidden="true">
+    <div class="faixa-grupo">
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+    </div>
+    <div class="faixa-grupo">
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+      <span class="faixa-item">Orçamento em até 1 hora</span>
+    </div>
+  </div>
+</div>
+
+<!-- 1) PRIMEIRA DOBRA -->
+<header class="hero">
+  <div class="hero-foto" role="img" aria-label="Técnicos uniformizados, com capacete, óculos e luvas, fazendo a instalação e manutenção de ar-condicionado"></div>
+  <div class="topo"><div class="wrap"><div class="marca">ROVANELE<span>CLIMATIZAÇÃO</span></div></div></div>
+  <div class="hero-conteudo"><div class="wrap">
+    <h1>O frio certo, instalado do jeito certo.</h1>
+    <p>Instalação, manutenção e projetos de climatização, de splits residenciais a chillers e sistemas VRF. Equipe uniformizada, com todos os EPIs, cuidando de cada detalhe da sua obra.</p>
+    <!-- TROQUE o número do WhatsApp abaixo (formato: 55 + DDD + número) -->
+    <a class="btn" href="https://wa.me/5562900000000?text=Ol%C3%A1!%20Quero%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.003 3C8.83 3 3 8.83 3 16c0 2.3.6 4.55 1.75 6.52L3 29l6.65-1.7A12.93 12.93 0 0 0 16 29c7.17 0 13-5.83 13-13S23.17 3 16.003 3Zm0 23.7c-1.95 0-3.85-.52-5.5-1.5l-.4-.23-3.95 1.01 1.05-3.85-.26-.4A10.66 10.66 0 0 1 5.3 16c0-5.9 4.8-10.7 10.7-10.7S26.7 10.1 26.7 16s-4.8 10.7-10.7 10.7Zm5.87-8c-.32-.16-1.9-.94-2.2-1.05-.3-.1-.5-.16-.72.16-.22.32-.83 1.05-1.02 1.27-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.62c-.22 0-.57.08-.86.4-.3.32-1.13 1.1-1.13 2.69 0 1.58 1.16 3.11 1.32 3.33.16.22 2.28 3.48 5.52 4.88.77.33 1.37.53 1.84.68.77.24 1.48.21 2.04.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.22-.62-.38Z"/></svg>
+      Solicite orçamento
+    </a>
+    <span class="hero-nota">Resposta rápida pelo WhatsApp.</span>
+  </div></div>
+</header>
+
+<!-- BOTÃO FLUTUANTE DO WHATSAPP (troque o número aqui também) -->
+<a class="zap-flutuante" href="https://wa.me/5562900000000?text=Ol%C3%A1!%20Quero%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar com a Rovanele pelo WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.003 3C8.83 3 3 8.83 3 16c0 2.3.6 4.55 1.75 6.52L3 29l6.65-1.7A12.93 12.93 0 0 0 16 29c7.17 0 13-5.83 13-13S23.17 3 16.003 3Zm0 23.7c-1.95 0-3.85-.52-5.5-1.5l-.4-.23-3.95 1.01 1.05-3.85-.26-.4A10.66 10.66 0 0 1 5.3 16c0-5.9 4.8-10.7 10.7-10.7S26.7 10.1 26.7 16s-4.8 10.7-10.7 10.7Zm5.87-8c-.32-.16-1.9-.94-2.2-1.05-.3-.1-.5-.16-.72.16-.22.32-.83 1.05-1.02 1.27-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.62c-.22 0-.57.08-.86.4-.3.32-1.13 1.1-1.13 2.69 0 1.58 1.16 3.11 1.32 3.33.16.22 2.28 3.48 5.52 4.88.77.33 1.37.53 1.84.68.77.24 1.48.21 2.04.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.22-.62-.38Z"/></svg>
+</a>
+
+<main>
+<!-- 2) FEEDBACKS (troque pelos comentários reais dos seus clientes) -->
+<section class="bloco" id="feedbacks"><div class="wrap">
+  <h2>Quem contratou, recomenda</h2>
+  <p class="intro">Veja o que nossos clientes contam depois de ter o serviço pronto.</p>
+  <div class="avaliacoes">
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">M</div><div><div class="av-nome">Mariana S.</div><div class="av-quando">há 2 semanas</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Instalaram quatro splits na minha casa em um dia. Equipe pontual, limpa e muito educada. Não deixaram nenhuma sujeira.</p>
+    </article>
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">R</div><div><div class="av-nome">Ricardo A.</div><div class="av-quando">há 1 mês</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Contratei a manutenção preventiva da minha empresa. Explicaram tudo o que foi feito e o ar ficou muito mais gelado.</p>
+    </article>
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">C</div><div><div class="av-nome">Camila F.</div><div class="av-quando">há 1 mês</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Meu ar parou em pleno calor e vieram no mesmo dia. Resolveram o problema e passaram um orçamento bem claro.</p>
+    </article>
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">J</div><div><div class="av-nome">João Pedro L.</div><div class="av-quando">há 2 meses</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Profissionais de verdade: uniforme, EPIs e muito cuidado com a obra. Recomendo para quem quer serviço bem feito.</p>
+    </article>
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">A</div><div><div class="av-nome">Ana Paula G.</div><div class="av-quando">há 3 meses</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Atendimento excelente do orçamento até a entrega. Cumpriram o prazo combinado e o acabamento ficou perfeito.</p>
+    </article>
+    <article class="av">
+      <div class="av-topo"><div class="av-foto">T</div><div><div class="av-nome">Tiago M.</div><div class="av-quando">há 4 meses</div></div></div>
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <p>Fizeram o projeto e a instalação do sistema VRF do nosso escritório. Tudo funcionando sem dor de cabeça.</p>
+    </article>
+  </div>
+</div></section>
+
+<!-- 3) SERVIÇOS -->
+<section class="bloco" id="servicos"><div class="wrap">
+  <h2>Tudo o que você precisa em climatização</h2>
+  <p class="intro">Do ar-condicionado simples ao projeto mais completo, uma só empresa cuida de tudo.</p>
+  <div class="servicos">
+    <div class="serv"><h3>Instalação de splits</h3><p>Para casas, apartamentos e escritórios, com acabamento limpo e aparelho funcionando do jeito certo desde o primeiro dia.</p></div>
+    <div class="serv"><h3>Manutenção preventiva</h3><p>Limpeza e revisão periódicas para o aparelho gelar melhor, gastar menos energia e durar mais.</p></div>
+    <div class="serv"><h3>Manutenção corretiva</h3><p>Seu ar parou, pingou ou não gela? Diagnosticamos o defeito e fazemos o conserto com peças de qualidade.</p></div>
+    <div class="serv"><h3>Sistemas VRF</h3><p>Instalação e manutenção de sistemas de fluxo variável, ideais para prédios, clínicas, hotéis e grandes ambientes.</p></div>
+    <div class="serv"><h3>Chillers e centrais de água gelada</h3><p>Soluções para indústrias e grandes empreendimentos, com equipe preparada para obras de grande porte.</p></div>
+    <div class="serv"><h3>Projetos e PMOC</h3><p>Dimensionamento correto do equipamento e elaboração do plano de manutenção exigido para ambientes comerciais.</p></div>
+  </div>
+</div></section>
+
+<!-- 4) CONTATO (troque pelos dados reais) -->
+<section class="bloco" id="contato"><div class="wrap">
+  <h2>Vamos conversar sobre o seu projeto</h2>
+  <p class="intro">Conte o que você precisa e receba um orçamento sem compromisso.</p>
+  <div class="contato-grid">
+    <div><h3>WhatsApp</h3><p><a href="https://wa.me/5562900000000" target="_blank" rel="noopener">(62) 90000-0000</a></p></div>
+    <div><h3>E-mail</h3><p><a href="mailto:contato@rovanele.com.br">contato@rovanele.com.br</a></p></div>
+    <div><h3>Atendimento</h3><p>Segunda a sexta, das 8h às 18h<br>Sábado, das 8h às 12h</p></div>
+    <div><h3>Região atendida</h3><p>Goiânia e cidades vizinhas</p></div>
+  </div>
+  <a class="btn" href="https://wa.me/5562900000000?text=Ol%C3%A1!%20Quero%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.003 3C8.83 3 3 8.83 3 16c0 2.3.6 4.55 1.75 6.52L3 29l6.65-1.7A12.93 12.93 0 0 0 16 29c7.17 0 13-5.83 13-13S23.17 3 16.003 3Zm0 23.7c-1.95 0-3.85-.52-5.5-1.5l-.4-.23-3.95 1.01 1.05-3.85-.26-.4A10.66 10.66 0 0 1 5.3 16c0-5.9 4.8-10.7 10.7-10.7S26.7 10.1 26.7 16s-4.8 10.7-10.7 10.7Zm5.87-8c-.32-.16-1.9-.94-2.2-1.05-.3-.1-.5-.16-.72.16-.22.32-.83 1.05-1.02 1.27-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.62c-.22 0-.57.08-.86.4-.3.32-1.13 1.1-1.13 2.69 0 1.58 1.16 3.11 1.32 3.33.16.22 2.28 3.48 5.52 4.88.77.33 1.37.53 1.84.68.77.24 1.48.21 2.04.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.22-.62-.38Z"/></svg>
+    Solicite orçamento
+  </a>
+</div></section>
+</main>
+
+<footer>&copy; 2026 Rovanele Climatização. Todos os direitos reservados.</footer>
+
+</body>
+</html>
