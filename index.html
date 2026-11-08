@@ -106,11 +106,112 @@ section.bloco{padding:96px 0}
 .estrelas{color:var(--estrela);letter-spacing:2px;font-size:1.05rem;margin-bottom:8px}
 .av p{font-size:.98rem}
 
-/* Serviços */
-.servicos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px 48px}
-.serv{border-left:4px solid var(--azul);padding-left:20px}
-.serv h3{font-size:1.35rem;color:var(--marinho);margin-bottom:8px}
-.serv p{color:#3d4f6b}
+/* Serviços (carrossel) */
+.svc-root{
+  --svc-navy:#0B1F3F;
+  --svc-navy-hover:#12305F;
+  --svc-gap:24px;
+  position:relative;
+  padding:0 56px;
+  box-sizing:border-box;
+  font-family:inherit;
+}
+.svc-root *{box-sizing:border-box}
+.svc-track{
+  display:flex;
+  gap:var(--svc-gap);
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding:14px 4px 46px;
+  scroll-padding-left:4px;
+  margin:0 -4px;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.svc-track::-webkit-scrollbar{display:none}
+.svc-card{
+  flex:0 0 calc((100% - 3*var(--svc-gap)) / 4);
+  scroll-snap-align:start;
+  background:var(--svc-navy);
+  color:#fff;
+  border-radius:14px;
+  padding:34px 26px 30px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  transition:transform .35s ease, box-shadow .35s ease, background-color .35s ease;
+  box-shadow:0 6px 18px rgba(11,31,63,.18);
+}
+.svc-card::after{
+  content:"";
+  position:absolute;left:50%;bottom:0;
+  width:0;height:4px;background:#fff;
+  transform:translateX(-50%);
+  transition:width .4s ease;
+}
+.svc-card:hover{
+  transform:translateY(-10px);
+  background:var(--svc-navy-hover);
+  box-shadow:0 18px 34px rgba(11,31,63,.35);
+}
+.svc-card:hover::after{width:70%}
+.svc-icon{
+  width:92px;height:92px;
+  margin:0 auto 22px;
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .45s ease, border-color .35s ease, background-color .35s ease;
+}
+.svc-icon svg{
+  width:50px;height:50px;
+  fill:none;stroke:#fff;stroke-width:1.2;
+  stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .45s ease;
+}
+.svc-card:hover .svc-icon{
+  transform:scale(1.08) rotate(-6deg);
+  border-color:#fff;
+  background:rgba(255,255,255,.08);
+}
+.svc-card:hover .svc-icon svg{transform:scale(1.1)}
+.svc-card h3{margin:0 0 14px;color:#fff;font-size:19px;font-weight:600;line-height:1.3}
+.svc-card p{margin:0;color:#fff;font-size:15px;font-weight:300;line-height:1.6}
+.svc-arrow{
+  position:absolute;
+  top:50%;
+  width:44px;height:44px;
+  margin-top:-22px;
+  border-radius:50%;
+  border:1px solid var(--svc-navy);
+  background:#fff;
+  color:var(--svc-navy);
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  padding:0;
+  transition:background-color .25s ease, color .25s ease, opacity .25s ease;
+  z-index:2;
+}
+.svc-arrow svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.svc-arrow:hover{background:var(--svc-navy);color:#fff}
+.svc-arrow:disabled{opacity:.3;cursor:default;pointer-events:none}
+.svc-prev{left:0}
+.svc-next{right:0}
+@media (max-width:1024px){
+  .svc-root{padding:0 52px;--svc-gap:20px}
+  .svc-card{flex-basis:calc((100% - var(--svc-gap)) / 2)}
+}
+@media (max-width:640px){
+  .svc-root{padding:0 40px;--svc-gap:16px}
+  .svc-card{flex-basis:100%}
+  .svc-arrow{width:36px;height:36px;margin-top:-18px}
+  .svc-arrow svg{width:16px;height:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .svc-card,.svc-icon,.svc-icon svg,.svc-card::after{transition:none}
+  .svc-track{scroll-behavior:auto}
+}
 
 /* Contato */
 #contato{background:var(--marinho);color:#fff}
@@ -228,14 +329,96 @@ footer{background:#071634;color:var(--gelo-2);text-align:center;padding:24px;fon
 <section class="bloco" id="servicos"><div class="wrap">
   <h2>Tudo o que você precisa em climatização</h2>
   <p class="intro">Do ar-condicionado simples ao projeto mais completo, uma só empresa cuida de tudo.</p>
-  <div class="servicos">
-    <div class="serv"><h3>Instalação de splits</h3><p>Para casas, apartamentos e escritórios, com acabamento limpo e aparelho funcionando do jeito certo desde o primeiro dia.</p></div>
-    <div class="serv"><h3>Manutenção preventiva</h3><p>Limpeza e revisão periódicas para o aparelho gelar melhor, gastar menos energia e durar mais.</p></div>
-    <div class="serv"><h3>Manutenção corretiva</h3><p>Seu ar parou, pingou ou não gela? Diagnosticamos o defeito e fazemos o conserto com peças de qualidade.</p></div>
-    <div class="serv"><h3>Sistemas VRF</h3><p>Instalação e manutenção de sistemas de fluxo variável, ideais para prédios, clínicas, hotéis e grandes ambientes.</p></div>
-    <div class="serv"><h3>Chillers e centrais de água gelada</h3><p>Soluções para indústrias e grandes empreendimentos, com equipe preparada para obras de grande porte.</p></div>
-    <div class="serv"><h3>Projetos e PMOC</h3><p>Dimensionamento correto do equipamento e elaboração do plano de manutenção exigido para ambientes comerciais.</p></div>
+<div class="svc-root" role="region" aria-label="Nossos serviços">
+
+  <button class="svc-arrow svc-prev" type="button" aria-label="Serviços anteriores">
+    <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+
+  <div class="svc-track">
+
+    <article class="svc-card">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="7" rx="2"/>
+          <path d="M6 8h12"/>
+          <path d="M6 14.5q1.5-1.5 3 0t3 0t3 0t3 0"/>
+          <path d="M6 19q1.5-1.5 3 0t3 0t3 0t3 0"/>
+        </svg>
+      </div>
+      <h3>Instalação de Ar Condicionado</h3>
+      <p>Realizamos todo o processo desde a escolha dos equipamentos mais adequados até a Instalação de Ar Condicionado conforme sua necessidade.</p>
+    </article>
+
+    <article class="svc-card">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+      </div>
+      <h3>Manutenção de Ar Condicionado corretiva e preventiva</h3>
+      <p>Nossa equipe técnica qualificada está apta a realizar a Manutenção de Ar Condicionado e Conserto de Ar Condicionado de todas as marcas e modelos.</p>
+    </article>
+
+    <article class="svc-card">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2.5C12 2.5 5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.5 12 2.5z"/>
+          <path d="M12 11.5v5"/>
+          <path d="M9.5 14h5"/>
+        </svg>
+      </div>
+      <h3>Higienização de Ar Condicionado</h3>
+      <p>Visita periódica Mensal ou Trimestral para a Higienização de Ar condicionado e verificações de funcionamento adequado do Equipamento.</p>
+    </article>
+
+    <article class="svc-card">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="7" y="8" width="10" height="14" rx="3"/>
+          <path d="M10 8V6h4v2"/>
+          <path d="M12 6V3"/>
+          <path d="M9.5 3h5"/>
+          <path d="M7 13h10"/>
+        </svg>
+      </div>
+      <h3>Carga de Gás de Ar Condicionado</h3>
+      <p>Realizamos Carga de Gás de Ar Condicionado de todas as Marcas e Modelos. Oferecemos garantia do serviço.</p>
+    </article>
+
+    <article class="svc-card">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 21V9a6 6 0 0 1 6-6h12"/>
+          <path d="M8 21V9a1 1 0 0 1 1-1h12"/>
+          <path d="M21 3v5"/>
+          <path d="M3 21h5"/>
+          <path d="M2 15h7"/>
+        </svg>
+      </div>
+      <h3>Troca de Tubulação de Ar Condicionado</h3>
+      <p>Caso seu equipamento esteja com vazamento na tubulação, realizamos a Troca de Tubulação de Ar Condicionado com os isolamentos e vácuo adequado.</p>
+    </article>
+
+    <article class="svc-card">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="9" rx="2"/>
+          <path d="M6 8.5h12"/>
+          <circle cx="17" cy="17.5" r="5" style="fill:var(--svc-navy)"/>
+          <path d="M14.5 17.5l2 2 3.5-4"/>
+        </svg>
+      </div>
+      <h3>Conserto de Ar Condicionado</h3>
+      <p>Realizamos Visita Técnica Especializada em Serviços de Conserto de Ar Condicionado de todas as Marcas e Modelos.</p>
+    </article>
+
   </div>
+
+  <button class="svc-arrow svc-next" type="button" aria-label="Próximos serviços">
+    <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+</div>
 </div></section>
 
 <!-- 4) CONTATO (troque pelos dados reais) -->
